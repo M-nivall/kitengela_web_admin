@@ -5,7 +5,7 @@ include "../../include/connections.php";
  if($_SERVER['REQUEST_METHOD']=='POST'){
 
     $requestID=$_POST['requestID'];
-    $amount = $_POST['amount'];
+    $amount = $_POST['totalAmount'];
 
    $select="SELECT * FROM request WHERE id='$requestID'";
                 $record=mysqli_query($con,$select);
@@ -20,7 +20,7 @@ include "../../include/connections.php";
                   VALUES ('$supplierId', '$amount', '$paymentDescription', '$quantity','$requestID')";
                   mysqli_query($con,$insert);
 
-    $update="UPDATE request SET request_status='Invoice Sent' WHERE id='$requestID'";
+    $update="UPDATE request SET request_status='Invoice Sent', bid_approval = 'Supplied' WHERE id='$requestID'";
     if(mysqli_query($con,$update)){
 
          $update2="UPDATE request SET amount='$amount' WHERE id='$requestID'";

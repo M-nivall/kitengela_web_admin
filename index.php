@@ -17,7 +17,7 @@ if (isset($_GET['logout'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Woodways Admin</title>
+  <title>Kitengela Glass Admin</title>
 
   <!-- Bootstrap & Vendor CSS -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
@@ -27,27 +27,67 @@ if (isset($_GET['logout'])) {
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <link rel="shortcut icon" href="images/coolinglogo.png" />
 
+  <!-- Custom Styles -->
   <style>
     body {
-      background-color: #f8f9fc;
+      background-color: #f1f3f6; /* light grey background */
+      font-family: 'Poppins', sans-serif;
     }
 
-    .card {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border-radius: 1rem;
+    .page-body-wrapper {
+      background-color: #f1f3f6; /* ensures wrapper is also grey */
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    /* Modern card styling */
+    .k-card {
+      border: none;
+      border-radius: 20px;
+      padding: 28px 20px;
+      background: #ffffff; /* white cards pop against grey background */
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      transition: all .25s ease;
     }
 
-    .card-body p {
-      letter-spacing: 0.5px;
+    .k-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.1);
     }
 
+    .k-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #4e73df;
+    }
+
+    .k-title {
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #334155;
+      letter-spacing: 1px;
+    }
+
+    .k-btn {
+      border-radius: 30px;
+      padding: 6px 22px;
+      margin-top: 10px;
+    }
+
+    /* Footer */
     footer {
       border-top: 1px solid #e0e0e0;
+      background-color: #f1f3f6;
+    }
+
+    /* Navbar styling for light grey look */
+    .navbar {
+      background-color: #ffffff !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Profile image */
+    .navbar .dropdown-toggle img {
+      object-fit: cover;
     }
   </style>
 </head>
@@ -56,11 +96,11 @@ if (isset($_GET['logout'])) {
   <div class="container-scroller">
 
     <!-- Top Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="index.php">
           <img src="images/coolinglogo.png" alt="logo" width="45" class="me-2">
-          <span class="fw-bold text-primary">Woodways Ltd Admin</span>
+          <span class="fw-bold text-primary">Kitengela Glass Ltd Admin</span>
         </a>
 
         <ul class="navbar-nav ms-auto">
@@ -87,78 +127,73 @@ if (isset($_GET['logout'])) {
       <main class="main-panel">
         <div class="content-wrapper container py-5">
           <div class="text-center mb-5">
-            <h3 class="fw-bold text-dark">Welcome, Admin</h3>
+            <h3 class="fw-bold text-dark">Admin Dashboard</h3>
             <p class="text-muted">Quick access to system modules</p>
           </div>
 
-          <!-- Cards Grid -->
+          <!-- New Modern Cards Grid -->
           <div class="row justify-content-center">
 
             <!-- Customers -->
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div class="card text-center h-100 border-0 shadow-sm" style="background-color:#e3f2fd;">
-                <div class="card-body">
-                  <p class="fw-bold text-primary text-uppercase mb-2">All Customers</p>
-                  <a href="approvedcustomers.php" class="btn btn-outline-primary btn-sm px-4">View</a>
-                </div>
+              <div class="k-card text-center">
+                <i class="ti-user k-icon"></i>
+                <div class="k-title">All Customers</div>
+                <a href="approvedcustomers.php" class="btn btn-outline-primary k-btn">View</a>
               </div>
             </div>
 
             <!-- Staff -->
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div class="card text-center h-100 border-0 shadow-sm" style="background-color:#e8f5e9;">
-                <div class="card-body">
-                  <p class="fw-bold text-success text-uppercase mb-2">Staff Members</p>
-                  <a href="allstaff.php" class="btn btn-outline-success btn-sm px-4">View</a>
-                </div>
+              <div class="k-card text-center">
+                <i class="ti-id-badge k-icon" style="color:#16a34a;"></i>
+                <div class="k-title">Staff Members</div>
+                <a href="allstaff.php" class="btn btn-outline-success k-btn">View</a>
               </div>
             </div>
 
             <!-- Suppliers -->
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div class="card text-center h-100 border-0 shadow-sm" style="background-color:#fff3e0;">
-                <div class="card-body">
-                  <p class="fw-bold text-warning text-uppercase mb-2">Suppliers</p>
-                  <a href="suppliers.php" class="btn btn-outline-warning btn-sm px-4">View</a>
-                </div>
+              <div class="k-card text-center">
+                <i class="ti-truck k-icon" style="color:#f59e0b;"></i>
+                <div class="k-title">Suppliers</div>
+                <a href="suppliers.php" class="btn btn-outline-warning k-btn">View</a>
               </div>
             </div>
 
             <!-- Orders -->
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div class="card text-center h-100 border-0 shadow-sm" style="background-color:#fce4ec;">
-                <div class="card-body">
-                  <p class="fw-bold text-danger text-uppercase mb-2">Order Records</p>
-                  <a href="allorders.php" class="btn btn-outline-danger btn-sm px-4">View</a>
-                </div>
+              <div class="k-card text-center">
+                <i class="ti-shopping-cart k-icon" style="color:#dc2626;"></i>
+                <div class="k-title">Order Records</div>
+                <a href="allorders.php" class="btn btn-outline-danger k-btn">View</a>
               </div>
             </div>
 
             <!-- Received Supply -->
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div class="card text-center h-100 border-0 shadow-sm" style="background-color:#ede7f6;">
-                <div class="card-body">
-                  <p class="fw-bold text-secondary text-uppercase mb-2">Received Supply</p>
-                  <a href="approvedsupply.php" class="btn btn-outline-secondary btn-sm px-4">View</a>
-                </div>
+              <div class="k-card text-center">
+                <i class="ti-archive k-icon" style="color:#6b7280;"></i>
+                <div class="k-title">Received Supply</div>
+                <a href="approvedsupply.php" class="btn btn-outline-secondary k-btn">View</a>
               </div>
             </div>
 
             <!-- Service Bookings -->
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div class="card text-center h-100 border-0 shadow-sm" style="background-color:#e0f7fa;">
-                <div class="card-body">
-                  <p class="fw-bold text-info text-uppercase mb-2">Service Bookings</p>
-                  <a href="approvedservpayments.php" class="btn btn-outline-info btn-sm px-4">View</a>
-                </div>
+              <div class="k-card text-center">
+                <i class="ti-agenda k-icon" style="color:#0ea5e9;"></i>
+                <div class="k-title">Service Bookings</div>
+                <a href="approvedservpayments.php" class="btn btn-outline-info k-btn">View</a>
               </div>
             </div>
+
           </div>
         </div>
 
         <!-- Footer -->
         <footer class="bg-white text-center py-3 mt-4 small text-muted">
-          © 2025 Woodways Limited. All rights reserved.
+          © 2025 Kitengela Glass Limited. All rights reserved.
         </footer>
       </main>
     </div>

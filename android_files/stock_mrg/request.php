@@ -21,6 +21,9 @@ while($row=mysqli_fetch_array($query)){
     $index["amount"]=$row["amount"];
     $index["quantity"]=$row["quantity"];
 
+     $index["quantity_price"]=$row["quantity_price"];
+      $index["bid_approval"]=$row["bid_approval"];
+
     array_push($response["details"],$index);
 
 }

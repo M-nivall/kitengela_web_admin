@@ -4,7 +4,8 @@
 include '../../include/connections.php';
 
 $userID=$_POST["userID"];
-$select="SELECT * FROM request WHERE client_id='$userID' ORDER BY id DESC";
+
+$select="SELECT * FROM request WHERE client_id='$userID' AND request_status IN ('Pending approval', 'Invoice Sent') ORDER BY id DESC";
 $query=mysqli_query($con,$select);
 if(mysqli_num_rows($query)>0){
     $response['status']=1;
@@ -16,6 +17,9 @@ while($row=mysqli_fetch_array($query)){
     $index["requestStatus"]=$row["request_status"];
     $index["requestDate"]=$row["request_date"];
     $index["quantity"]=$row["quantity"];
+
+     $index["quantity_price"]=$row["quantity_price"];
+      $index["bid_approval"]=$row["bid_approval"];
 
     array_push($response["details"],$index);
 
