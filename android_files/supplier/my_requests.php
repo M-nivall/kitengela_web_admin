@@ -27,6 +27,6 @@ while($row=mysqli_fetch_array($query)){
 
 }else{
     $response['status']=0;
-    $response['message']='Please try again. Something went wrong';
+    $response['message']='Nothing found';
 }
 echo json_encode($response);
