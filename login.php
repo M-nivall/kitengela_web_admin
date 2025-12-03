@@ -79,7 +79,6 @@ include('dbconnect.php');
       background: #0056b3;
       transform: translateY(-2px);
     }
-
     .error-msg {
       color: red;
       background: #ffe5e5;
